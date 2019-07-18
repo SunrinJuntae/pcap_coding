@@ -150,16 +150,32 @@ void PrintData()
         return ;
     }
 
+    if(data_len < 10)
+    {
+        if(data_len == 1)
+        {
+            printf("[+] data length : %d\n", data_len);
+            puts("[!] Print 1 bytes of data ");
+        }
+        else
+        {
+            printf("[+] data length : %d\n", data_len);
+            printf("[!] Print %d bytes of data\n", data_len);
+        }
+    }  
+
     else
     {
         printf("[+] data length : %d\n", data_len);
-        puts("[!] Print 10 bytes of data ");
-    }  
-    
+        puts("[!] Print 10 bytes of data");
+    }
+       
     printf("-> ");
-    for(int i=1; i<=10; i++)
+    for(int i=1; i<data_len + 1; i++)
     {
         printf("%02X ", data[i - 1]);
+        if(i==10)
+            break;
     }
 
     MakeLine(1);
